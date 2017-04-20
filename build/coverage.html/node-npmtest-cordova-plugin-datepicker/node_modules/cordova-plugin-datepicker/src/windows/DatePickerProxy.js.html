@@ -1,0 +1,1319 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-cordova-plugin-datepicker/node_modules/cordova-plugin-datepicker/src/windows/DatePickerProxy.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-cordova-plugin-datepicker">npmtest-cordova-plugin-datepicker (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-cordova-plugin-datepicker/node_modules/cordova-plugin-datepicker/src/windows/DatePickerProxy.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">0.63% <small>(1 / 160)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 80)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">0.63% <small>(1 / 160)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-cordova-plugin-datepicker/node_modules/cordova-plugin-datepicker/src/windows/</a> &#187; DatePickerProxy.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+*/
+&nbsp;
+/*global Windows, WinJS*/
+&nbsp;
+var cordova = require('cordova');
+&nbsp;
+<span class="cstat-no" title="statement not covered" >module.exports = {</span>
+	
+    date: <span class="fstat-no" title="function not covered" >function (success, error, args) {</span>
+		
+<span class="cstat-no" title="statement not covered" >		module.exports.winJSDatePicker.show(success, error, "date", args[0]);</span>
+&nbsp;
+    },
+&nbsp;
+    time: <span class="fstat-no" title="function not covered" >function (success, error, args) {</span>
+		
+<span class="cstat-no" title="statement not covered" >		module.exports.winJSDatePicker.show(success, error, "time", args[0]);</span>
+		
+    },
+&nbsp;
+    datetime: <span class="fstat-no" title="function not covered" >function (success, error, args) {</span>
+		
+<span class="cstat-no" title="statement not covered" >		module.exports.winJSDatePicker.show(success, error, "datetime", args[0]);</span>
+&nbsp;
+    },
+&nbsp;
+    winJSDatePicker : {
+	
+        show: <span class="fstat-no" title="function not covered" >function(success, error, pickertype, options){</span>
+            /* options = {
+            mode : 'date/time/datetime',
+            date : selected date in format "month/day/year/hours/minutes",
+            minDate: 0 or DateObj,
+            maxDate: 0 or DateObj,
+            clearText: 'Clear'
+            }
+            */
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (options.date) {</span>
+<span class="cstat-no" title="statement not covered" >                var dateParts = options.date.split("/");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var month = dateParts[0] &lt;= 9 ? '0' + dateParts[0] : dateParts[0],</span>
+                    day = dateParts[1] &lt;= 9 ? '0' + dateParts[1] : dateParts[1],
+                    hours = dateParts[3] &lt;= 9 ? '0' + dateParts[3] : dateParts[3],
+                    minutes = dateParts[4] &lt;= 9 ? '0' + dateParts[4] : dateParts[4];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var dateTimeString = "" + dateParts[2] + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":00";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                options.date = new Date(dateTimeString);</span>
+&nbsp;
+            }
+            else {
+<span class="cstat-no" title="statement not covered" >                options.date = new Date();</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!options.minDate) {</span>
+<span class="cstat-no" title="statement not covered" >                options.minDate = new Date ("1970-01-01T00:00:00")</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!options.maxDate) {</span>
+<span class="cstat-no" title="statement not covered" >                options.maxDate = new Date("2050-01-01T00:00:00");</span>
+            }
+            
+<span class="cstat-no" title="statement not covered" >            var buttonCSSText = "border: 3px solid white; background:#000; color:#FFF; border-radius:0; width: 90%; height: 90%; font-size: 2em;"</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var overlay = document.createElement("div");</span>
+<span class="cstat-no" title="statement not covered" >            var overlay_id = "winjsoverlay";</span>
+<span class="cstat-no" title="statement not covered" >            overlay.id = overlay_id;</span>
+<span class="cstat-no" title="statement not covered" >            overlay.style.cssText = "position: fixed; left: 0; top: 0; right:0; bottom:0; width: 100%; height: 100%; z-index: 999; margin: 0 auto; background: #000; -ms-touch-action:none;";</span>
+&nbsp;
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var pickerDivTable = document.createElement("div");</span>
+<span class="cstat-no" title="statement not covered" >            pickerDivTable.style.cssText = "width:90%; height: 90%; display: table; text-align:center; margin: 0 auto; padding:0;";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var pickerDiv = document.createElement("div");</span>
+<span class="cstat-no" title="statement not covered" >            pickerDiv.id = "winjsdatetimepickerContainer";</span>
+<span class="cstat-no" title="statement not covered" >            pickerDiv.style.cssText = "display: table-cell; vertical-align:middle; text-align:center;";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            pickerDivTable.appendChild(pickerDiv);</span>
+&nbsp;
+            //insert timepicker if needed
+<span class="cstat-no" title="statement not covered" >            if (pickertype.indexOf("time") &gt;= 0){</span>
+<span class="cstat-no" title="statement not covered" >                var timePickerTable = document.createElement("table");</span>
+<span class="cstat-no" title="statement not covered" >                timePickerTable.style.cssText = "table-layout:fixed; width:100%; margin: 0 auto; padding:0;";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var timePickerDescriptionRow = document.createElement("tr");</span>
+<span class="cstat-no" title="statement not covered" >                timePickerTable.appendChild(timePickerDescriptionRow);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var timePickerInputRow = document.createElement("tr");</span>
+<span class="cstat-no" title="statement not covered" >                timePickerTable.appendChild(timePickerInputRow);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                for (var i = 0; i &lt; 2; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                    var descriptionElement = document.createElement("td");</span>
+<span class="cstat-no" title="statement not covered" >                    timePickerDescriptionRow.appendChild(descriptionElement);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    var cell = document.createElement("td");</span>
+<span class="cstat-no" title="statement not covered" >                    timePickerInputRow.appendChild(cell);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    var timePickerSelect = document.createElement("select");</span>
+<span class="cstat-no" title="statement not covered" >                    timePickerSelect.style.cssText = buttonCSSText;</span>
+<span class="cstat-no" title="statement not covered" >                    timePickerSelect.setAttribute("data-tap-disabled","true");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    cell.appendChild(timePickerSelect);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (i == 0) {</span>
+<span class="cstat-no" title="statement not covered" >                        timePickerSelect.id = "winjsdatepickerHours";</span>
+<span class="cstat-no" title="statement not covered" >                        descriptionElement.textContent = "hours";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        for (var h = 0; h &lt;= 23; h++) {</span>
+<span class="cstat-no" title="statement not covered" >                            var option = document.createElement("option");</span>
+<span class="cstat-no" title="statement not covered" >                            option.textContent = h &lt;= 9 ? "0" + h : h;</span>
+<span class="cstat-no" title="statement not covered" >                            option.value = h;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            if (h == options.date.getHours()) {</span>
+<span class="cstat-no" title="statement not covered" >                                option.setAttribute("selected", "selected");</span>
+                            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            timePickerSelect.appendChild(option);</span>
+                        }
+                    }
+                    else <span class="cstat-no" title="statement not covered" >if (i == 1) {</span>
+<span class="cstat-no" title="statement not covered" >                        timePickerSelect.id = "winjsdatepickerMinutes";</span>
+<span class="cstat-no" title="statement not covered" >                        descriptionElement.textContent = "minutes";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        for (var m = 0 ; m &lt;= 59; m++) {</span>
+<span class="cstat-no" title="statement not covered" >                            var option = document.createElement("option");</span>
+<span class="cstat-no" title="statement not covered" >                            option.textContent = m &lt;= 9 ? "0" + m : m;</span>
+<span class="cstat-no" title="statement not covered" >                            option.value = m;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            if (m == options.date.getMinutes()) {</span>
+<span class="cstat-no" title="statement not covered" >                                option.setAttribute("selected", "selected");</span>
+                            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            timePickerSelect.appendChild(option);</span>
+                        }
+                    }
+&nbsp;
+&nbsp;
+                }
+&nbsp;
+                //not supported on phone 8.1
+                //var timePicker = new WinJS.UI.TimePicker(timePickerDiv, options);
+                
+<span class="cstat-no" title="statement not covered" >                pickerDiv.appendChild(timePickerTable);</span>
+            }
+&nbsp;
+            //insert date picker if needed
+<span class="cstat-no" title="statement not covered" >            if (pickertype.indexOf("date") &gt;= 0) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var datePickerTable = document.createElement("table");</span>
+<span class="cstat-no" title="statement not covered" >                datePickerTable.style.cssText = "table-layout:fixed; width:100%; margin: 0 auto; padding:0;";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var datePickerDescriptionRow = document.createElement("tr");</span>
+<span class="cstat-no" title="statement not covered" >                datePickerTable.appendChild(datePickerDescriptionRow);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var datePickerInputRow = document.createElement("tr");</span>
+<span class="cstat-no" title="statement not covered" >                datePickerTable.appendChild(datePickerInputRow);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                for (var i = 0; i &lt; 3; i++) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    var descriptionElement = document.createElement("td");</span>
+<span class="cstat-no" title="statement not covered" >                    datePickerDescriptionRow.appendChild(descriptionElement);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    var cell = document.createElement("td");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    var datePickerSelect = document.createElement("select");</span>
+<span class="cstat-no" title="statement not covered" >                    datePickerSelect.style.cssText = buttonCSSText;</span>
+<span class="cstat-no" title="statement not covered" >                    datePickerSelect.setAttribute("data-tap-disabled","true");</span>
+<span class="cstat-no" title="statement not covered" >                    if (i == 0) {</span>
+<span class="cstat-no" title="statement not covered" >                        datePickerSelect.id = "winjsdatepickerYear";</span>
+<span class="cstat-no" title="statement not covered" >                        descriptionElement.textContent = "year";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        for (var y=1970; y&lt;=2050; y++) {</span>
+<span class="cstat-no" title="statement not covered" >                            var option = document.createElement("option");</span>
+<span class="cstat-no" title="statement not covered" >                            option.textContent = y;</span>
+<span class="cstat-no" title="statement not covered" >                            option.value = y;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            if (y == options.date.getFullYear()) {</span>
+<span class="cstat-no" title="statement not covered" >                                option.setAttribute("selected", "selected");</span>
+                            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            datePickerSelect.appendChild(option);</span>
+                        }
+&nbsp;
+                        
+                    }
+                    else <span class="cstat-no" title="statement not covered" >if (i == 1) {</span>
+<span class="cstat-no" title="statement not covered" >                        datePickerSelect.id = "winjsdatepickerMonth";</span>
+<span class="cstat-no" title="statement not covered" >                        descriptionElement.textContent = "month";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        for (var m=1 ; m&lt;=12; m++) {</span>
+<span class="cstat-no" title="statement not covered" >                            var option = document.createElement("option");</span>
+<span class="cstat-no" title="statement not covered" >                            option.textContent = m &lt;=9 ? "0" + m : m;</span>
+<span class="cstat-no" title="statement not covered" >                            option.value = m;</span>
+                            
+<span class="cstat-no" title="statement not covered" >                            if (m == options.date.getMonth()+1) {</span>
+<span class="cstat-no" title="statement not covered" >                                option.setAttribute("selected", "selected");</span>
+                            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            datePickerSelect.appendChild(option);</span>
+                        }
+                    }
+                    else <span class="cstat-no" title="statement not covered" >if (i == 2) {</span>
+<span class="cstat-no" title="statement not covered" >                        datePickerSelect.id = "winjsdatepickerDay";</span>
+<span class="cstat-no" title="statement not covered" >                        descriptionElement.textContent = "day";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        for (var d=1; d&lt;=31; d++) {</span>
+<span class="cstat-no" title="statement not covered" >                            var option = document.createElement("option");</span>
+<span class="cstat-no" title="statement not covered" >                            option.textContent = d &lt;= 9 ? "0" + d : d;</span>
+<span class="cstat-no" title="statement not covered" >                            option.value = d;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            if (d == options.date.getDate()) {</span>
+<span class="cstat-no" title="statement not covered" >                                option.setAttribute("selected", "selected");</span>
+                            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            datePickerSelect.appendChild(option);</span>
+                        }
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    datePickerSelect.addEventListener("change", <span class="fstat-no" title="function not covered" >function () {</span></span>
+                        //checkMinMaxDate
+<span class="cstat-no" title="statement not covered" >                        var year = document.getElementById("winjsdatepickerYear"),</span>
+                            month = document.getElementById("winjsdatepickerMonth"),
+                            day = document.getElementById("winjsdatepickerDay"),
+                            maxYear = options.maxDate.getFullYear(),
+                            minYear = options.minDate.getFullYear(),
+                            maxMonth = options.maxDate.getMonth()+1,
+                            minMonth = options.minDate.getMonth()+1,
+                            maxDay = options.maxDate.getDate(),
+                            minDay = options.minDate.getDate();
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        if (year.value &gt; maxYear) {</span>
+<span class="cstat-no" title="statement not covered" >                            year.value = maxYear;</span>
+                        }
+                        else <span class="cstat-no" title="statement not covered" >if (year.value &lt; minYear) {</span>
+<span class="cstat-no" title="statement not covered" >                            year.value = minYear;</span>
+                        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        if (year.value == maxYear) {</span>
+<span class="cstat-no" title="statement not covered" >                            if (month.value &gt; maxMonth) {</span>
+<span class="cstat-no" title="statement not covered" >                                month.value = maxMonth;</span>
+                            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            if (month.value == maxMonth) {</span>
+<span class="cstat-no" title="statement not covered" >                                if (day.value &gt; maxDay) {</span>
+<span class="cstat-no" title="statement not covered" >                                    day.value = maxDay;</span>
+                                }
+                            }
+&nbsp;
+                        }
+                        else <span class="cstat-no" title="statement not covered" >if (year.value == minYear) {</span>
+<span class="cstat-no" title="statement not covered" >                            if (month.value &lt; minMonth) {</span>
+<span class="cstat-no" title="statement not covered" >                                month.value = minMonth;</span>
+                            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                            if (month.value == minMonth) {</span>
+<span class="cstat-no" title="statement not covered" >                                if (day.value &lt; minDay) {</span>
+<span class="cstat-no" title="statement not covered" >                                    day.value = minDay;</span>
+                                }
+                            }
+                        }
+&nbsp;
+                    }, false);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    cell.appendChild(datePickerSelect);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    datePickerInputRow.appendChild(cell);</span>
+&nbsp;
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                pickerDiv.appendChild(datePickerTable);</span>
+                //not supported on phone 8.1
+                //var datePicker = new WinJS.UI.DatePicker(datePickerDiv, options);
+                //datePicker.onchange = module.exports.checkMinMaxDate;
+&nbsp;
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            overlay.appendChild(pickerDivTable);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            overlayFooter = document.createElement("div");</span>
+<span class="cstat-no" title="statement not covered" >            overlayFooter.style.cssText = "position: fixed; bottom:0; left:0; right:0; z-index: 1000; width: 100%; height: 10%; display: table; text-align:center; vertical-align:middle;";</span>
+<span class="cstat-no" title="statement not covered" >            overlay.appendChild(overlayFooter);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var leftCell = document.createElement("div");</span>
+<span class="cstat-no" title="statement not covered" >            leftCell.style.cssText = "display: table-cell; width: 50%";</span>
+<span class="cstat-no" title="statement not covered" >            overlayFooter.appendChild(leftCell);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var rightCell = document.createElement("div");</span>
+<span class="cstat-no" title="statement not covered" >            rightCell.style.cssText = "display: table-cell; width: 50%";</span>
+<span class="cstat-no" title="statement not covered" >            overlayFooter.appendChild(rightCell);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var cancelButton = document.createElement("button");</span>
+<span class="cstat-no" title="statement not covered" >            cancelButton.innerText = "Cancel";</span>
+<span class="cstat-no" title="statement not covered" >            cancelButton.style.cssText = buttonCSSText;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            cancelButton.addEventListener("click", <span class="fstat-no" title="function not covered" >function(){</span></span>
+			
+<span class="cstat-no" title="statement not covered" >                overlay.parentElement.removeChild(overlay);</span>
+			
+            });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            rightCell.appendChild(cancelButton);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var useButton = document.createElement("button");</span>
+<span class="cstat-no" title="statement not covered" >            useButton.innerText = "Use";</span>
+<span class="cstat-no" title="statement not covered" >            useButton.style.cssText = buttonCSSText;</span>
+		
+<span class="cstat-no" title="statement not covered" >            useButton.addEventListener("click", <span class="fstat-no" title="function not covered" >function () {</span></span>
+                //read input and return Date Object
+<span class="cstat-no" title="statement not covered" >                var year = document.getElementById("winjsdatepickerYear"),</span>
+                    month = document.getElementById("winjsdatepickerMonth"),
+                    day = document.getElementById("winjsdatepickerDay"),
+                    hours = document.getElementById("winjsdatepickerHours"),
+                    minutes = document.getElementById("winjsdatepickerMinutes");
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var dateTimeStr = "";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (pickertype.indexOf("date") &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >                    dateTimeStr = "" + (year.value &lt;= 9 ? "0" + year.value : year.value) + "-" + (month.value &lt;= 9 ? "0" + month.value : month.value) + "-" + (day.value &lt;= 9 ? "0" + day.value : day.value);</span>
+                }
+                else {
+<span class="cstat-no" title="statement not covered" >                    dateTimeStr = "1970-01-01";</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (pickertype.indexOf("time") &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >                    dateTimeStr = dateTimeStr + "T" + (hours.value &lt;= 9 ? "0" + hours.value : hours.value) + ":" + (minutes.value &lt;= 9 ? "0" + minutes.value : minutes.value) + ":00";</span>
+                }
+                
+<span class="cstat-no" title="statement not covered" >                overlay.parentElement.removeChild(overlay);</span>
+<span class="cstat-no" title="statement not covered" >                success(dateTimeStr);</span>
+&nbsp;
+&nbsp;
+            });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            leftCell.appendChild(useButton);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            document.body.appendChild(overlay);</span>
+            
+        }
+    }
+};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >require("cordova/exec/proxy").add("DatePickerPlugin",module.exports);</span>
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Thu Apr 20 2017 06:15:17 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>
